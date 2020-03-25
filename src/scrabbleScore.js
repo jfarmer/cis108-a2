@@ -38,6 +38,7 @@ function scrabbleScore(word) {
       }
     }
   }
+  console.log('The sum is:', sum);
   return sum;
 }
 
