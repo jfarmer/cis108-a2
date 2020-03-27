@@ -4,8 +4,7 @@ let SCRABBLE_TILE_SCORES = {
   m: 3, n: 1, o: 1, p: 3, q: 10, r: 1,
   s: 1, t: 1, u: 1, v: 4, w: 4,  x: 8,
   y: 4, z: 10,
-};
-
+}
 /**
  * Given a word, returns its scrabble score. Each letter
  * is assigned a point value. A word's score is the sum
@@ -24,7 +23,14 @@ let SCRABBLE_TILE_SCORES = {
  */
 
 function scrabbleScore(word) {
-  // This is your job. :)
+  let score = 0;
+  let wordArray = word.toLowerCase().split('');
+
+  for(let letter of wordArray){
+    score += SCRABBLE_TILE_SCORES[letter];
+  }
+
+  return score;
 }
 
 if (require.main === module) {
@@ -32,9 +38,7 @@ if (require.main === module) {
 
   console.log(scrabbleScore('aaa') === 3);
   console.log(scrabbleScore('aaa') === scrabbleScore('AaA'));
-
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(scrabbleScore("cat") === 5);
 }
 
 module.exports = scrabbleScore;
