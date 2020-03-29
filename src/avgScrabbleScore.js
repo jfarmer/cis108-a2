@@ -1,4 +1,4 @@
-// let scrabbleScore = require('./scrabbleScore');
+ let scrabbleScore = require('./scrabbleScore');
 
 /**
  * Given an array of words, return the average scrabble
@@ -14,25 +14,25 @@ let SCRABBLE_TILE_SCORES = {
   y: 4, z: 10,
 };
 
-function scrabbleScore(word) {
+// function scrabbleScore(word) {
 
-  let pointCount = 0;
-  let letters = Object.keys(SCRABBLE_TILE_SCORES);
-  let values = Object.values(SCRABBLE_TILE_SCORES);
+//   let pointCount = 0;
+//   let letters = Object.keys(SCRABBLE_TILE_SCORES);
+//   let values = Object.values(SCRABBLE_TILE_SCORES);
 
-  for (let j = 0; j <= word.length ; j++ ) {
+//   for (let j = 0; j <= word.length ; j++ ) {
 
-    for (let i = 0; i <= 25; i++ ) {
+//     for (let i = 0; i <= 25; i++ ) {
 
-      if (word.charAt(j) === letters[i]){
+//       if (word.charAt(j) === letters[i]){
 
-        pointCount += values[i];
-      }
-    }
-  }
-  // console.log(`The score of ${word} is ${pointCount}`);
-  return pointCount;
-}
+//         pointCount += values[i];
+//       }
+//     }
+//   }
+//   // console.log(`The score of ${word} is ${pointCount}`);
+//   return pointCount;
+// }
 
 function avgScrabbleScore(words) {
 
@@ -46,7 +46,7 @@ function avgScrabbleScore(words) {
     // console.log(`This is pointSum before addition of ${currentWord} : ${pointSum}`)
     pointSum += wordPoints;
     // console.log(`This is pointSum after addition ${pointSum}`)
-
+// console.log(`pointSum is ${pointSum} and WordPoints is ${wordPoints}`)
   }
 
   let pointAvg = pointSum / words.length;
@@ -65,4 +65,4 @@ console.log(avgScrabbleScore( ['equalize']) === 26);
   // How else will you be sure your code does what you think it does?
 }
 
-// module.exports = avgScrabbleScore;
+ module.exports = avgScrabbleScore;
