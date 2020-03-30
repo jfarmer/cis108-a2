@@ -26,19 +26,18 @@ let SCRABBLE_TILE_SCORES = {
 function scrabbleScore(word) {
   // This is your job. :)
   let adjustedWord = word.toLowerCase();
-  let counter = 0;
+  let indexCounter = 0;
   let sum = 0;
-  let keys = Object.keys(SCRABBLE_TILE_SCORES);
-  let value = Object.values(SCRABBLE_TILE_SCORES);
-  while (counter !== adjustedWord.length) {
-    for (let index in keys) {
-      while (keys[index] === adjustedWord[counter]) {
-        sum += value[index];
-        counter++;
+  let tileKeys = Object.keys(SCRABBLE_TILE_SCORES);
+  let tileValue = Object.values(SCRABBLE_TILE_SCORES);
+  while (counter !== adjustedWord.length) { // this loop makes sure that each letter of the user input is considered
+    for (let index in tileKeys) { //this loops goes through each key in the SCRABBLE_TILE_SCORES
+      if (tileKeys[index] === adjustedWord[indexCounter]) {
+        sum += tileValue[index];
+        indexCounter++;
       }
     }
   }
-  console.log('The sum is:', sum);
   return sum;
 }
 
