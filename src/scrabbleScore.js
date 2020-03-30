@@ -24,17 +24,28 @@ let SCRABBLE_TILE_SCORES = {
  */
 
 function scrabbleScore(word) {
-  // This is your job. :)
+  let wordy = word.toLowerCase();
+  let letters = wordy.split('');
+  let score = 0;
+  let currentLetter;
+  let letterValue;
+
+  for (let i=0;i<letters.length;i++) {
+     currentLetter = letters[i];
+     letterValue = SCRABBLE_TILE_SCORES[currentLetter];
+     score = score + letterValue;
+  }
+  return score;
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for scrabbleScore:');
-
-  console.log(scrabbleScore('aaa') === 3);
+  console.log(scrabbleScore('abc') === 7);
+  console.log(scrabbleScore('igloo') === 6);
   console.log(scrabbleScore('aaa') === scrabbleScore('AaA'));
+  console.log(scrabbleScore('zZzZz') === 50);
 
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+
 }
 
 module.exports = scrabbleScore;
