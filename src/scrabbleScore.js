@@ -24,16 +24,10 @@ let SCRABBLE_TILE_SCORES = {
  */
 
 function scrabbleScore(word) {
-  let wordy = word.toLowerCase();
-  let letters = wordy.split('');
   let score = 0;
-  let currentLetter;
-  let letterValue;
 
-  for (let i=0;i<letters.length;i++) {
-     currentLetter = letters[i];
-     letterValue = SCRABBLE_TILE_SCORES[currentLetter];
-     score = score + letterValue;
+  for (letter of word) {
+    score += SCRABBLE_TILE_SCORES[letter.toLowerCase()];
   }
   return score;
 }

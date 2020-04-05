@@ -13,13 +13,18 @@ let avgScrabbleScore = require('./avgScrabbleScore');
 function avgScrabbleScoreFromFile(fileName) {
   let words = fs.readFileSync(fileName, 'utf-8').split("\n");
   let avg = avgScrabbleScore(words);
-  let score = avg.toFixed(2);
-  return score;
+  if (isNaN(avg)) {
+    return "Can't compute the scrabble score";
+  }
+  else {
+    return avg;
+  }
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for avgScrabbleScoreFromFile:');
-  console.log(avgScrabbleScoreFromFile('./sample-words.txt') == 15.94);
+  console.log(avgScrabbleScoreFromFile('./sample-words.txt') === 15.941176470588236);
+  console.log(avgScrabbleScoreFromFile('./blank.txt') === "Can't compute the scrabble score");
 }
 
 module.exports = avgScrabbleScoreFromFile;

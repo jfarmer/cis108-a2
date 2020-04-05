@@ -8,15 +8,17 @@ let scrabbleScore = require('./scrabbleScore');
  */
 function avgScrabbleScore(words) {
   let totalScore = 0;
-  let wordScore = 0;
-  let avg;
 
-  for (let i=0;i<words.length;i++) {
-    wordScore = scrabbleScore(words[i]);
-    totalScore = totalScore + wordScore;
+  for (word of words) {
+    totalScore += scrabbleScore(word);
   }
-  avg = totalScore/words.length;
-  return avg;
+
+  if (totalScore <= 0) {
+    return "No score";
+  }
+  else {
+    return totalScore/words.length;
+  }
 }
 
 if (require.main === module) {
@@ -24,6 +26,7 @@ if (require.main === module) {
   console.log(avgScrabbleScore(['cat','dog','ant','den']) === 4.25);
   console.log(avgScrabbleScore(['cat']) === 5)
   console.log(avgScrabbleScore(['this','is','hard','to','check']) === 7);
+  console.log(avgScrabbleScore([]) === "No Score");
 }
 
 module.exports = avgScrabbleScore;
