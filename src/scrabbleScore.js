@@ -24,7 +24,12 @@ let SCRABBLE_TILE_SCORES = {
  */
 
 function scrabbleScore(word) {
-  // This is your job. :)
+  let score = 0;
+  let wordArray = word.toLowerCase().split('');
+  for(let letter of wordArray){
+    score += SCRABBLE_TILE_SCORES[letter]
+  }
+  return score
 }
 
 if (require.main === module) {
@@ -32,6 +37,7 @@ if (require.main === module) {
 
   console.log(scrabbleScore('aaa') === 3);
   console.log(scrabbleScore('aaa') === scrabbleScore('AaA'));
+  console.log(scrabbleScore('Shaah') === 11);
 
   // Add your own sanity checks here.
   // How else will you be sure your code does what you think it does?

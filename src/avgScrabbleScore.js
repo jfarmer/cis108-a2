@@ -7,14 +7,18 @@ let scrabbleScore = require('./scrabbleScore');
  * Use your implementation of scrabbleScore.
  */
 function avgScrabbleScore(words) {
-  // This is your job. :)
+  let scoreTotal= 0;
+  for (let word of words){
+    console.log("Score of " + word + "is " + scrabbleScore(word));
+    scoreTotal += scrabbleScore(word);
+    console.log("Total score is " + scoreTotal);
+  }
+  return scoreTotal/(words.length)
 }
 
 if (require.main === module) {
   console.log('Running sanity checks for avgScrabbleScore:');
-
-  // Add your own sanity checks here.
-  // How else will you be sure your code does what you think it does?
+  console.log(avgScrabbleScore(['dog','cat','rock']) === 20/3)
 }
 
 module.exports = avgScrabbleScore;
